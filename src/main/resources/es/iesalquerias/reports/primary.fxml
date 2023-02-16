@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iesalquerias.reports.PrimaryController">
+   <center>
+      <WebView fx:id="wvReport" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btLoad" layoutX="349.0" layoutY="8.0" mnemonicParsing="false" onAction="#change" text="Cambiar" />
+            <ComboBox fx:id="cbReports" layoutX="199.0" layoutY="8.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <ProgressBar fx:id="pbBar" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

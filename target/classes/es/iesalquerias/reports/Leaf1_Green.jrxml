@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf1_Green" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e7eebaa4-068b-407f-bf7a-d4c2e72a1292">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT sakila.film.film_id,
+	sakila.film_actor.actor_id,
+	sakila.film_actor.film_id,
+	sakila.film.film_id,
+	sakila.actor.actor_id,
+	sakila.actor.first_name,
+	sakila.actor.last_name,
+	sakila.film.title
+FROM sakila.film_actor
+	INNER JOIN sakila.film ON 
+	 sakila.film_actor.film_id = sakila.film.film_id 
+	INNER JOIN sakila.actor ON 
+	 sakila.film_actor.actor_id = sakila.actor.actor_id]]>
+	</queryString>
+	<field name="film_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="film"/>
+	</field>
+	<field name="actor_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="actor_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="actor_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="film_actor"/>
+	</field>
+	<field name="COLUMN_3" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="film_actor"/>
+	</field>
+	<field name="COLUMN_4" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="film"/>
+	</field>
+	<field name="COLUMN_5" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="actor_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="actor_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="actor"/>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="actor"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="actor"/>
+	</field>
+	<field name="title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="title"/>
+		<property name="com.jaspersoft.studio.field.label" value="title"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="film"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{actor_id}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#006600" uuid="53b06611-b6d2-4c3c-a10e-2b349a2d73d3"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{actor_id}.toString().concat( ". " ).concat( $F{first_name}.concat( " " ).concat( $F{last_name} ))]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6e6a2f69-aed6-45fd-bd5d-08c1142e76c2"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{first_name}]]></groupExpression>
+		<groupHeader>
+			<band height="30"/>
+		</groupHeader>
+	</group>
+	<group name="last_name">
+		<groupExpression><![CDATA[$F{last_name}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<image>
+				<reportElement x="330" y="6" width="225" height="70" uuid="d7cb9de5-f1d6-4e9a-8441-72f5e2127742"/>
+				<imageExpression><![CDATA["gungangingan.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="15" y="13" width="280" height="51" uuid="3eb8e1ab-7e38-4368-89db-62b6501a8c67"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Actores y sus peliculas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="d69c6691-e92e-45c5-bf2d-c1dc15dabb91"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="fdd9fc29-bf5c-46f3-a478-3b727265abc3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70a7279b-593a-43a6-8e55-1cc20a8b2d0e"/>
+				</reportElement>
+				<text><![CDATA[film_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="86" y="19" width="111" height="15" uuid="b3f209a1-5ba7-4152-9f84-7c4f5aaed6cc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a5000d0e-bb23-447a-9db7-103a16aa71db"/>
+				</reportElement>
+				<text><![CDATA[title]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="f367c019-9cb7-431c-8713-5a96f9b889aa"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="0fea59d4-58ce-43af-bbfc-0d5957360794">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70a7279b-593a-43a6-8e55-1cc20a8b2d0e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{film_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="100" y="0" width="111" height="15" uuid="4e72def5-8db7-4ec5-ae52-12348f042543">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a5000d0e-bb23-447a-9db7-103a16aa71db"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="02519f40-8679-4e40-a1f1-699bc025a206"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="6f13e17d-4b46-4ede-ab63-9d2685ec9c16"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="6857db7e-824a-4cda-b8dc-fe5c95aca145"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="ef9fc35f-c45f-4ec6-a5cc-ec2020109ea7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="400" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</summary>
+</jasperReport>
